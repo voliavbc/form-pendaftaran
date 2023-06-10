@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FORMULIR PENDAFTARAN AVBC 2022</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="my-alert d-none">
+      <p>Sukses Boss!</p>
+    </div>
+
+    <div class="avbc"></div>
+
+    <form name="avbc-form">
+      <div class="login">
+        <h2 id="txt">Formulir Pendaftaran AVBC 2022</h2>
+        <h5>AMIKOM VOLLEYBALL CLUB</h5>
+        <div class="inputBox">
+          <input
+            type="text"
+            placeholder="Nama Lengkap"
+            name="nama"
+            required
+            oninvalid="this.setCustomValidity('nama harus diisi!')"
+            oninput="this.setCustomValidity('')"
+          />
+        </div>
+        <div class="inputBox">
+          <input
+            type="text"
+            placeholder="NIM"
+            name="nim"
+            maxlength="10"
+            required
+            oninvalid="this.setCustomValidity('NIM harus diisi!')"
+            oninput="this.setCustomValidity('')"
+          />
+        </div>
+        <div class="inputBox">
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            required
+            oninvalid="this.setCustomValidity('email harus diisi!')"
+            oninput="this.setCustomValidity('')"
+          />
+        </div>
+
+        <div class="jk">
+          <div class="lk">
+            <input
+              type="radio"
+              name="jenis_kelamin"
+              id="lakilaki"
+              value="L"
+              required
+            />
+            <label for="lakilaki">Laki-Laki</label>
+          </div>
+          <div class="pr">
+            <input
+              type="radio"
+              name="jenis_kelamin"
+              id="perempuan"
+              value="P"
+              required
+            />
+            <label for="perempuan">Perempuan</label>
+          </div>
+        </div>
+
+        <div class="inputBox">
+          <input
+            type="text"
+            placeholder="Alamat (Kota Asal)"
+            name="alamat"
+            required
+            oninvalid="this.setCustomValidity('alamat harus diisi!')"
+            oninput="this.setCustomValidity('')"
+          />
+        </div>
+        <div class="inputBox">
+          <input
+            type="tel"
+            placeholder="Nomor Telp"
+            name="telp"
+            maxlength="15"
+            required
+            oninvalid="this.setCustomValidity('no telp harus diisi!')"
+            oninput="this.setCustomValidity('')"
+          />
+        </div>
+        <div class="inputBox">
+          <!-- <input type="text" placeholder="Prodi/Jurusan" /> -->
+          <select name="jurusan" required>
+            <option value="0" selected disabled>-- Pilih Jurusan --</option>
+            <option value="FAKULTAS ILMU KOMPUTER" disabled>
+              FAKULTAS ILMU KOMPUTER
+            </option>
+            <option value="D3 TEKNIK INFORMATIKA">D3 TEKNIK INFORMATIKA</option>
+            <option value="D3 MANAJEMEN INFORMATIKA">
+              D3 MANAJEMEN INFORMATIKA
+            </option>
+            <option value="S1 TEKNIK INFORMATIKA/INFORMATIKA">
+              S1 TEKNIK INFORMATIKA/INFORMATIKA
+            </option>
+            <option value="S1 SISTEM INFORMASI">S1 SISTEM INFORMASI</option>
+            <option value="S1 TEKNOLOGI INFORMASI">
+              S1 TEKNOLOGI INFORMASI
+            </option>
+            <option value="S1 TEKNIK KOMPUTER">S1 TEKNIK KOMPUTER</option>
+            <option value="FAKULTAS EKONOMI & SOSIAL" disabled>
+              FAKULTAS EKONOMI & SOSIAL
+            </option>
+            <option value="S1 EKONOMI">S1 EKONOMI</option>
+            <option value="S1 KEWIRAUSAHAAN">S1 KEWIRAUSAHAAN</option>
+            <option value="S1 AKUNTANSI">S1 AKUNTANSI</option>
+            <option value="S1 ILMU KOMUNIKASI">S1 ILMU KOMUNIKASI</option>
+            <option value="S1 HUBUNGAN INTERNASIONAL">
+              S1 HUBUNGAN INTERNASIONAL
+            </option>
+            <option value="S1 ILMU PEMERINTAHAN">S1 ILMU PEMERINTAHAN</option>
+            <option value="FAKULTAS SAINS & TEKNOLOGI" disabled>
+              FAKULTAS SAINS & TEKNOLOGI
+            </option>
+            <option value="S1 ARSITEKTUR">S1 ARSITEKTUR</option>
+            <option value="S1 PERENCANAAN WILAYAH DAN KOTA">
+              S1 PERENCANAAN WILAYAH DAN KOTA
+            </option>
+            <option value="S1 INFORMATIKA GEOGRAFI/GEOGRAFI">
+              S1 INFORMATIKA GEOGRAFI/GEOGRAFI
+            </option>
+            <option value="PASCASARJANA" disabled>PASCASARJANA</option>
+            <option value="S2 TEKNIK INFORMATIKA">S2 TEKNIK INFORMATIKA</option>
+          </select>
+        </div>
+        <div class="inputBox">
+          <!-- <input type="text" placeholder="Prodi/Jurusan" /> -->
+          <select name="posisi" required>
+            <option value="0" selected disabled>-- Pilih Posisi --</option>
+            <option value="OPEN SPIKER">OPEN SPIKER</option>
+            <option value="QUICKER">QUICKER</option>
+            <option value="ALL ROUND SPIKER">ALL ROUND SPIKER</option>
+            <option value="SETTER/TOSSER">SETTER/TOSSER</option>
+            <option value="LIBERO/DEFENDER">LIBERO/DEFENDER</option>
+          </select>
+        </div>
+        <!-- <div class="inputBox">
+          <input
+            type="text"
+            placeholder="Prestasi (tidak wajib diisi)"
+            name="prestasi"
+          />
+        </div> -->
+        <textarea
+          name="prestasi"
+          cols="30"
+          rows="3"
+          placeholder="Prestasi (tidak wajib diisi)"
+        ></textarea>
+
+        <!-- <div class="inputBox">
+          <input class="btn-kirim" type="submit" value="DAFTAR" id="btn" />
+        </div> -->
+
+        <button class="btn-kirim" id="btn" type="submit">DAFTAR</button>
+
+        <!-- <div class="group">
+          <a href="#">Forgot Password</a>
+          <a href="#">Signup</a>
+        </div> -->
+      </div>
+    </form>
+
+    <div class="colors">
+      <span
+        class="active"
+        onclick="changeColor('#4A148C')"
+        style="--clr: #4a148c"
+      ></span>
+      <span onclick="changeColor('#6A1B9A')" style="--clr: #6a1b9a"></span>
+      <span onclick="changeColor('#650175')" style="--clr: #650175"></span>
+      <span onclick="changeColor('#FBCE02')" style="--clr: #fbce02"></span>
+      <span onclick="changeColor('#FA7806')" style="--clr: #fa7806"></span>
+    </div>
+
+    <script>
+      let btn = document.getElementById("btn");
+      let txt = document.getElementById("txt");
+      function changeColor(color) {
+        document.body.style.background = color;
+        btn.style.background = color;
+        txt.style.borderColor = color;
+
+        // mark as active selected color
+        document.querySelectorAll("span").forEach(function (item) {
+          item.classList.remove("active");
+        });
+        event.target.classList.add("active");
+      }
+
+      // GOOGLE SPREADSHEET
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycby2Pd32tR0htEJ0kJiKKeJZ--BDQu8MIG9CQn-q8Y3q6LxDZ84s8QDQuKYHgYhoONaM/exec";
+      const form = document.forms["avbc-form"];
+
+      const btnKirim = document.querySelector(".btn-kirim");
+      // const btnLoading = document.querySelector(".btn-loading");
+      const myAlert = document.querySelector(".my-alert");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        if (document.forms["avbc-form"]["jurusan"].selectedIndex == 0) {
+          alert("Pilih jurusan!");
+        } else if (document.forms["avbc-form"]["posisi"].selectedIndex == 0) {
+          alert("Pilih posisi!");
+        } else {
+          btnKirim.innerText = "Loading...";
+          fetch(scriptURL, { method: "POST", body: new FormData(form) })
+            .then((response) => {
+              btnKirim.innerText = "DAFTAR";
+              myAlert.classList.toggle("d-none");
+              setTimeout(() => {
+                myAlert.classList.toggle("d-none");
+              }, 5000);
+              form.reset();
+              console.log("Success!", response);
+            })
+            .catch((error) => {
+              alert("Pendaftaran GAGAL!");
+              console.error("Error!", error.message);
+            });
+        }
+      });
+    </script>
+  </body>
+</html>
