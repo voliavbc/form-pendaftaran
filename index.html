@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FORMULIR PENDAFTARAN AVBC 2022</title>
+    <title>FORMULIR PENDAFTARAN AVBC</title>
+    <link rel="icon" type="image/x-icon" href="logo.ico" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.28/dist/sweetalert2.min.css"
+    />
   </head>
   <body>
     <div class="my-alert d-none">
@@ -205,7 +210,7 @@
 
       // GOOGLE SPREADSHEET
       const scriptURL =
-        "https://script.google.com/macros/s/AKfycby2Pd32tR0htEJ0kJiKKeJZ--BDQu8MIG9CQn-q8Y3q6LxDZ84s8QDQuKYHgYhoONaM/exec";
+        "https://script.google.com/macros/s/AKfycbwFhVowWMPEXhiAStiraPCXakmUCH0UXBKOgTxc2VuVXXhzbjvwTZlxH-SvnpNN3Ju8/exec";
       const form = document.forms["avbc-form"];
 
       const btnKirim = document.querySelector(".btn-kirim");
@@ -220,23 +225,46 @@
         } else if (document.forms["avbc-form"]["posisi"].selectedIndex == 0) {
           alert("Pilih posisi!");
         } else {
-          btnKirim.innerText = "Loading...";
-          fetch(scriptURL, { method: "POST", body: new FormData(form) })
-            .then((response) => {
-              btnKirim.innerText = "DAFTAR";
-              myAlert.classList.toggle("d-none");
-              setTimeout(() => {
-                myAlert.classList.toggle("d-none");
-              }, 5000);
-              form.reset();
-              console.log("Success!", response);
-            })
-            .catch((error) => {
-              alert("Pendaftaran GAGAL!");
-              console.error("Error!", error.message);
-            });
+          Swal.fire({
+            title: "Apakah kamu yakin?",
+            text: "Mau lanjut mendaftar.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "GASS",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              btnKirim.innerText = "Loading...";
+              fetch(scriptURL, { method: "POST", body: new FormData(form) })
+                .then((response) => {
+                  btnKirim.innerText = "DAFTAR";
+
+                  Swal.fire(
+                    "Berhasil!",
+                    "Terimakasih sudah mendaftar :)",
+                    "success"
+                  );
+
+                  // myAlert.classList.toggle("d-none");
+                  // setTimeout(() => {
+                  //   myAlert.classList.toggle("d-none");
+                  // }, 5000);
+
+                  form.reset();
+                  console.log("Success!", response);
+                })
+                .catch((error) => {
+                  Swal.fire("Gagal!", "Pendaftaran gagal :(", "warning");
+                  // alert("Pendaftaran GAGAL!");
+                  console.error("Error!", error.message);
+                });
+            }
+          });
         }
       });
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.28/dist/sweetalert2.all.min.js"></script>
   </body>
 </html>
